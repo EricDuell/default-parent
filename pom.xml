@@ -27,6 +27,10 @@
                     <version>3.3</version>
                 </plugin>
                 <plugin>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>2.10</version>
+                </plugin>
+                <plugin>
                     <artifactId>maven-deploy-plugin</artifactId>
                     <version>2.7</version>
                 </plugin>
@@ -86,6 +90,21 @@
                             <goal>verify</goal>
                         </goals>
                         <phase>verify</phase>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Analyzes the dependencies of this project and determines which are: 
+				used and declared; used and undeclared; unused and declared. -->
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>analyze-only</goal>
+                        </goals>
+                        <configuration>
+                            <failOnWarning>true</failOnWarning>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -193,7 +212,6 @@
                         <goals>
                             <goal>enforce</goal>
                         </goals>
-                        <phase>validate</phase>
                         <configuration>
                             <rules>
                                 <requirePluginVersions>
@@ -214,7 +232,6 @@
                         <goals>
                             <goal>enforce</goal>
                         </goals>
-                        <phase>validate</phase>
                         <configuration>
                             <rules>
                                 <requirePluginVersions>
@@ -235,7 +252,6 @@
                         <goals>
                             <goal>enforce</goal>
                         </goals>
-                        <phase>validate</phase>
                         <configuration>
                             <rules>
                                 <requirePluginVersions>
