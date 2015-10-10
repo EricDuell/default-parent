@@ -14,7 +14,11 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-enforcer-plugin</artifactId>
-				<version>1.4.1</version>
+				<configuration>
+					<ignoreCache>true</ignoreCache>
+					<fail>true</fail>
+					<failFast>true</failFast>
+				</configuration>
 				<executions>
 					<execution>
 						<id>display-info</id>
@@ -23,17 +27,6 @@
 						</goals>
 						<phase>validate</phase>
 					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<artifactId>maven-enforcer-plugin</artifactId>
-				<version>1.4.1</version>
-				<configuration>
-					<ignoreCache>true</ignoreCache>
-					<fail>true</fail>
-					<failFast>true</failFast>
-				</configuration>
-				<executions>
 					<execution>
 						<id>enforce-banned-dependencies</id>
 						<goals>
@@ -107,24 +100,62 @@
 						</configuration>
 					</execution>
 					<execution>
-						<id>enforce-plugin-versions</id>
+						<id>ban-RELEASE-as-plugin-version</id>
 						<goals>
 							<goal>enforce</goal>
 						</goals>
+						<phase>validate</phase>
 						<configuration>
 							<rules>
 								<requirePluginVersions>
-									<message>For the sake of reproducable builds its required to
-										define all plugin versions</message>
-									<banLatest>true</banLatest>
+									<message>To ensure build stability the maven paremeter
+										"RELEASE" is not allowed as plugin version</message>
 									<banRelease>true</banRelease>
-									<banSnapshots>true</banSnapshots>
-									<phases>clean,deploy,site</phases>
+									<banLatest>false</banLatest>
+									<banSnapshots>false</banSnapshots>
 								</requirePluginVersions>
 							</rules>
+							<fail>true</fail>
 						</configuration>
 					</execution>
-
+					<execution>
+						<id>ban-LATEST-as-plugin-version</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<phase>validate</phase>
+						<configuration>
+							<rules>
+								<requirePluginVersions>
+									<message>To ensure build stability the maven paremeter "LATEST"
+										is not allowed as plugin version</message>
+									<banRelease>false</banRelease>
+									<banLatest>true</banLatest>
+									<banSnapshots>false</banSnapshots>
+								</requirePluginVersions>
+							</rules>
+							<fail>true</fail>
+						</configuration>
+					</execution>
+					<execution>
+						<id>ban-SNAPSHOT-as-plugin-version</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<phase>validate</phase>
+						<configuration>
+							<rules>
+								<requirePluginVersions>
+									<message>To ensure build stability only released plugin
+										versions are allowed</message>
+									<banRelease>false</banRelease>
+									<banLatest>false</banLatest>
+									<banSnapshots>true</banSnapshots>
+								</requirePluginVersions>
+							</rules>
+							<fail>true</fail>
+						</configuration>
+					</execution>
 
 				</executions>
 			</plugin>
@@ -132,6 +163,10 @@
 
 		<pluginManagement>
 			<plugins>
+				<plugin>
+					<artifactId>maven-enforcer-plugin</artifactId>
+					<version>1.4.1</version>
+				</plugin>
 				<plugin>
 					<artifactId>maven-clean-plugin</artifactId>
 					<version>2.6.1</version>
