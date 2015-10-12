@@ -13,6 +13,12 @@
         <tag>${project.artifactId}-${project.version}</tag>
         <url>scm:git:git@github.com:EricDuell/default-parent.git</url>
     </scm>
+    <distributionManagement>
+        <repository>
+            <id>bintray</id>
+            <url>https://api.bintray.com/maven/laimes/laimes-releases/test-package</url>
+        </repository>
+    </distributionManagement>
     <properties>
         <maven.version>(3.1.0,3.2.0)</maven.version>
     </properties>
@@ -191,7 +197,7 @@
                         </goals>
                         <configuration>
                             <rules>
-                                <reactorModuleConvergence />
+                                <reactorModuleConvergence></reactorModuleConvergence>
                             </rules>
                             <fail>true</fail>
                         </configuration>
@@ -305,6 +311,45 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <useReleaseProfile>false</useReleaseProfile>
+                    <releaseProfiles>release</releaseProfiles>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
