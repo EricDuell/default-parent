@@ -3,14 +3,14 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.laimes.maven</groupId>
     <artifactId>default-parent</artifactId>
-    <version>1.1</version>
+    <version>1.2-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Default Maven Parent (${project.artifactId})</name>
     <description>Default settings that every maven project should have</description>
     <scm>
         <connection>scm:git:git@github.com:EricDuell/default-parent.git</connection>
         <developerConnection>scm:git:git@github.com:EricDuell/default-parent.git</developerConnection>
-        <tag>default-parent-1.1</tag>
+        <tag>${project.artifactId}-${project.version}</tag>
         <url>scm:git:git@github.com:EricDuell/default-parent.git</url>
     </scm>
     <properties>
