@@ -132,7 +132,16 @@
                         <configuration>
                             <releaseName>${project.artifactId}-${project.version}</releaseName>
                             <tag>${project.artifactId}-${project.version}</tag>
-                            <artifact>${project.build.directory}/${project.artifactId}-${project.version}.jar</artifact>
+                            <fileSets>
+                                <fileSet>
+                                    <directory>${project.build.directory}</directory>
+                                    <includes>
+                                        <include>${project.artifactId}*.tar.gz</include>
+                                        <include>${project.artifactId}*.zip</include>
+                                        <include>${project.build.directory}/${project.artifactId}-${project.version}.jar</include>
+                                    </includes>
+                                </fileSet>
+                            </fileSets>
                         </configuration>
                     </execution>
                 </executions>
@@ -197,7 +206,7 @@
                         </goals>
                         <configuration>
                             <rules>
-                                <reactorModuleConvergence />
+                                <reactorModuleConvergence></reactorModuleConvergence>
                             </rules>
                             <fail>true</fail>
                         </configuration>
