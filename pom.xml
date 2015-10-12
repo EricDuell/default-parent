@@ -130,7 +130,7 @@
                         <phase>deploy</phase>
                         <inherited>false</inherited>
                         <configuration>
-                            <releaseName>${project.version}</releaseName>
+                            <releaseName>${project.artifactId}-${project.version}</releaseName>
                             <tag>${project.version}</tag>
                             <artifact>${project.build.directory}/${project.artifactId}-${project.version}.jar</artifact>
                         </configuration>
