@@ -3,14 +3,14 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.laimes.maven</groupId>
     <artifactId>default-parent</artifactId>
-    <version>1.5-SNAPSHOT</version>
+    <version>1.5</version>
     <packaging>pom</packaging>
     <name>Default Maven Parent (${project.artifactId})</name>
     <description>Default settings that every maven project should have</description>
     <scm>
         <connection>scm:git:git@github.com:EricDuell/default-parent.git</connection>
         <developerConnection>scm:git:git@github.com:EricDuell/default-parent.git</developerConnection>
-        <tag>${project.artifactId}-${project.version}</tag>
+        <tag>default-parent-1.5</tag>
         <url>scm:git:git@github.com:EricDuell/default-parent.git</url>
     </scm>
     <distributionManagement>
@@ -206,7 +206,7 @@
                         </goals>
                         <configuration>
                             <rules>
-                                <reactorModuleConvergence></reactorModuleConvergence>
+                                <reactorModuleConvergence />
                             </rules>
                             <fail>true</fail>
                         </configuration>
