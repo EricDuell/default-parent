@@ -117,6 +117,31 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- Everything looks better with a warm and friendly welcome message. Even this "default maven parent" -->
+            <plugin>
+                <groupId>com.google.code.echo-maven-plugin</groupId>
+                <artifactId>echo-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <inherited>false</inherited>
+                <executions>
+                    <execution>
+                        <id>welcome-message</id>
+                        <goals>
+                            <goal>echo</goal>
+                        </goals>
+                        <phase>validate</phase>
+                        <configuration>
+                            <message>${line.separator} 
+  You have chosen the '${project.artifactId}' and I appreciate this decission.
+  So lay back and lets see if everything is configured and tested as it should be.
+  ... and don't panic if the build fails.${line.separator}
+  If you have any suggestions what should be part of every maven project or if you find 
+  a bug than visit https://github.com/EricDuell/${project.artifactId} and feel free to create
+  a task.${line.separator}</message>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <!-- Analyzes the dependencies of this project and determines which are: 
 				used and declared; used and undeclared; unused and declared. -->
             <plugin>
@@ -177,7 +202,7 @@
                         </goals>
                         <configuration>
                             <rules>
-                                <reactorModuleConvergence />
+                                <reactorModuleConvergence></reactorModuleConvergence>
                             </rules>
                             <fail>true</fail>
                         </configuration>
