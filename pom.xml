@@ -23,7 +23,7 @@
         <connection>scm:git:git@github.com:EricDuell/default-parent.git</connection>
         <developerConnection>scm:git:git@github.com:EricDuell/default-parent.git</developerConnection>
         <tag>${project.artifactId}-${project.version}</tag>
-        <url>git@github.com:EricDuell/default-parent.git</url>
+        <url>https://github.com/EricDuell/default-parent</url>
     </scm>
     <distributionManagement>
         <repository>
