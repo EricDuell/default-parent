@@ -5,13 +5,25 @@
     <artifactId>default-parent</artifactId>
     <version>1.8-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>Default Maven Parent (${project.artifactId})</name>
+    <name>Default Maven Parent (${project.groupId}:${project.artifactId})</name>
     <description>Default settings that every maven project should have</description>
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>Eric Duell</name>
+            <email>Eric.Duell@gmail.com</email>
+        </developer>
+    </developers>
     <scm>
         <connection>scm:git:git@github.com:EricDuell/default-parent.git</connection>
         <developerConnection>scm:git:git@github.com:EricDuell/default-parent.git</developerConnection>
         <tag>${project.artifactId}-${project.version}</tag>
-        <url>scm:git:git@github.com:EricDuell/default-parent.git</url>
+        <url>git@github.com:EricDuell/default-parent.git</url>
     </scm>
     <distributionManagement>
         <repository>
@@ -117,7 +129,8 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- Everything looks better with a warm and friendly welcome message. Even this "default maven parent" -->
+            <!-- Everything looks better with a warm and friendly welcome message. 
+				Even this "default maven parent" -->
             <plugin>
                 <groupId>com.google.code.echo-maven-plugin</groupId>
                 <artifactId>echo-maven-plugin</artifactId>
