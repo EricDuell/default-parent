@@ -145,12 +145,11 @@
                         <phase>validate</phase>
                         <configuration>
                             <message>${line.separator} 
-  You have chosen the '${project.artifactId}' and I appreciate this decission.
-  So lay back and lets see if everything is configured and tested as it should be.
-  ... and don't panic if the build fails.${line.separator}
-  If you have any suggestions what should be part of every maven project or if you 
-  find a bug than visit https://github.com/EricDuell/${project.artifactId} and 
-  feel free to create a task.${line.separator}</message>
+  You are using the 'de.laimes.maven:default-parent' that provides a set of 
+  necessary plugins that every project should have.${line.separator}
+  If you have any suggestions what should be part of every maven project or if
+  you find a bug then visit https://github.com/EricDuell/${project.artifactId} 
+  and feel free to create a task.${line.separator}</message>
                         </configuration>
                     </execution>
                 </executions>
