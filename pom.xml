@@ -382,6 +382,15 @@
                </execution>
             </executions>
          </plugin>
+         <!-- Tests should always run in random order to detect a bad test setup where one test influences 
+            another one. -->
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+               <runOrder>random</runOrder>
+            </configuration>
+         </plugin>
       </plugins>
    </build>
    <profiles>
