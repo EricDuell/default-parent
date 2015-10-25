@@ -7,6 +7,9 @@
    <packaging>pom</packaging>
    <name>Default Maven Parent (${project.groupId}:${project.artifactId})</name>
    <description>Set of plugins that every maven project should have</description>
+   <prerequisites>
+      <maven>3.1.0</maven>
+   </prerequisites>
    <!-- The license should not be part of this default-parent as it will inherit the information
    to all its children, maybe without their knowledge. The file itself is published under 
    "The Apache 2.0 License". 
@@ -46,6 +49,7 @@
       <java.version>1.7</java.version>
       <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss (Z)</maven.build.timestamp.format>
       <maven.version>(3.1.0,3.2.0)</maven.version>
+      <maven.version.prerequisite>3.1.0</maven.version.prerequisite>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
    </properties>
    <build>
