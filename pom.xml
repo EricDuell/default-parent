@@ -26,10 +26,10 @@
         <url>https://github.com/EricDuell/default-parent</url>
     </scm>
     <distributionManagement>
-        <repository>
-            <id>bintray</id>
-            <url>https://api.bintray.com/maven/laimes/laimes-releases/test-package</url>
-        </repository>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
     </distributionManagement>
     <properties>
         <maven.version>(3.1.0,3.2.0)</maven.version>
