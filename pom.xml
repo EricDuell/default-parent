@@ -7,18 +7,25 @@
    <packaging>pom</packaging>
    <name>Default Maven Parent (${project.groupId}:${project.artifactId})</name>
    <description>Set of plugins that every maven project should have</description>
+   <!-- The license should not be part of this default-parent as it will inherit the information
+   to all its children, maybe without their knowledge. The file itself is published under 
+   "The Apache 2.0 License". 
    <licenses>
       <license>
          <name>The Apache License, Version 2.0</name>
          <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
       </license>
    </licenses>
+    -->
+   <!-- The list of developers should not be part of this default-parent as it will inherit the 
+   information to all its children, maybe without their knowledge. 
    <developers>
       <developer>
          <name>Eric Duell</name>
          <email>Eric.Duell@gmail.com</email>
       </developer>
    </developers>
+   -->
    <scm>
       <connection>scm:git:git@github.com:EricDuell/default-parent.git</connection>
       <developerConnection>scm:git:git@github.com:EricDuell/default-parent.git</developerConnection>
@@ -354,7 +361,7 @@
          <build>
             <plugins>
                <!-- Sign project artifact, the POM, and attached artifacts with GnuPG for deployment. -->
-               <!-- This is only for this parent and will not be inherited to childs -->
+               <!-- This is only for this parent and will not be inherited to children -->
                <plugin>
                   <groupId>org.apache.maven.plugins</groupId>
                   <artifactId>maven-gpg-plugin</artifactId>
