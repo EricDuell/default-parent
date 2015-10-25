@@ -1,397 +1,394 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>de.laimes.maven</groupId>
-    <artifactId>default-parent</artifactId>
-    <version>0.9.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <name>Default Maven Parent (${project.groupId}:${project.artifactId})</name>
-    <description>Set of plugins that every maven project should have</description>
-    <licenses>
-        <license>
-            <name>The Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-        </license>
-    </licenses>
-    <developers>
-        <developer>
-            <name>Eric Duell</name>
-            <email>Eric.Duell@gmail.com</email>
-        </developer>
-    </developers>
-    <scm>
-        <connection>scm:git:git@github.com:EricDuell/default-parent.git</connection>
-        <developerConnection>scm:git:git@github.com:EricDuell/default-parent.git</developerConnection>
-        <tag>${project.artifactId}-${project.version}</tag>
-        <url>https://github.com/EricDuell/default-parent</url>
-    </scm>
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
-    <properties>
-        <maven.version>(3.1.0,3.2.0)</maven.version>
-    </properties>
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>com.github.ekryd.sortpom</groupId>
-                    <artifactId>sortpom-maven-plugin</artifactId>
-                    <version>2.4.0</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-clean-plugin</artifactId>
-                    <version>2.6.1</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.3</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-dependency-plugin</artifactId>
-                    <version>2.10</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-deploy-plugin</artifactId>
-                    <version>2.7</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-enforcer-plugin</artifactId>
-                    <version>1.4.1</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-install-plugin</artifactId>
-                    <version>2.4</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>2.4</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>2.10.3</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-release-plugin</artifactId>
-                    <version>2.5.2</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-resources-plugin</artifactId>
-                    <version>2.6</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-site-plugin</artifactId>
-                    <version>3.3</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-source-plugin</artifactId>
-                    <version>2.4</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.18.1</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-        <plugins>
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>de.laimes.maven</groupId>
+   <artifactId>default-parent</artifactId>
+   <version>0.9.0-SNAPSHOT</version>
+   <packaging>pom</packaging>
+   <name>Default Maven Parent (${project.groupId}:${project.artifactId})</name>
+   <description>Set of plugins that every maven project should have</description>
+   <licenses>
+      <license>
+         <name>The Apache License, Version 2.0</name>
+         <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      </license>
+   </licenses>
+   <developers>
+      <developer>
+         <name>Eric Duell</name>
+         <email>Eric.Duell@gmail.com</email>
+      </developer>
+   </developers>
+   <scm>
+      <connection>scm:git:git@github.com:EricDuell/default-parent.git</connection>
+      <developerConnection>scm:git:git@github.com:EricDuell/default-parent.git</developerConnection>
+      <tag>${project.artifactId}-${project.version}</tag>
+      <url>https://github.com/EricDuell/default-parent</url>
+   </scm>
+   <distributionManagement>
+      <snapshotRepository>
+         <id>ossrh</id>
+         <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      </snapshotRepository>
+   </distributionManagement>
+   <properties>
+      <maven.version>(3.1.0,3.2.0)</maven.version>
+   </properties>
+   <build>
+      <pluginManagement>
+         <plugins>
             <plugin>
-                <!-- Maven plugin that helps the user sort pom.xml. The default sort order is taken from the Maven3 pom documentation. 
+               <groupId>com.github.ekryd.sortpom</groupId>
+               <artifactId>sortpom-maven-plugin</artifactId>
+               <version>2.4.0</version>
+            </plugin>
+            <plugin>
+               <artifactId>maven-clean-plugin</artifactId>
+               <version>2.6.1</version>
+            </plugin>
+            <plugin>
+               <artifactId>maven-compiler-plugin</artifactId>
+               <version>3.3</version>
+            </plugin>
+            <plugin>
+               <artifactId>maven-dependency-plugin</artifactId>
+               <version>2.10</version>
+            </plugin>
+            <plugin>
+               <artifactId>maven-deploy-plugin</artifactId>
+               <version>2.7</version>
+            </plugin>
+            <plugin>
+               <artifactId>maven-enforcer-plugin</artifactId>
+               <version>1.4.1</version>
+            </plugin>
+            <plugin>
+               <artifactId>maven-install-plugin</artifactId>
+               <version>2.4</version>
+            </plugin>
+            <plugin>
+               <artifactId>maven-jar-plugin</artifactId>
+               <version>2.4</version>
+            </plugin>
+            <plugin>
+               <artifactId>maven-javadoc-plugin</artifactId>
+               <version>2.10.3</version>
+            </plugin>
+            <plugin>
+               <artifactId>maven-release-plugin</artifactId>
+               <version>2.5.2</version>
+            </plugin>
+            <plugin>
+               <artifactId>maven-resources-plugin</artifactId>
+               <version>2.6</version>
+            </plugin>
+            <plugin>
+               <artifactId>maven-site-plugin</artifactId>
+               <version>3.3</version>
+            </plugin>
+            <plugin>
+               <artifactId>maven-source-plugin</artifactId>
+               <version>2.4</version>
+            </plugin>
+            <plugin>
+               <artifactId>maven-surefire-plugin</artifactId>
+               <version>2.18.1</version>
+            </plugin>
+         </plugins>
+      </pluginManagement>
+      <plugins>
+         <plugin>
+            <!-- Maven plugin that helps the user sort pom.xml. The default sort order is taken from the Maven3 pom documentation. 
                The main advantages to have standardized sorted poms are that they become more readable and that comparisons between different 
                module poms becomes much easier. -->
-                <groupId>com.github.ekryd.sortpom</groupId>
-                <artifactId>sortpom-maven-plugin</artifactId>
-                <configuration>
-                    <createBackupFile>false</createBackupFile>
-                    <predefinedSortOrder>recommended_2008_06</predefinedSortOrder>
-                    <encoding>UTF-8</encoding>
-                    <sortProperties>true</sortProperties>
-                    <sortDependencies>scope,artifactId</sortDependencies>
-                    <sortPlugins>groupId,artifactId</sortPlugins>
-                    <lineSeparator>\r\n</lineSeparator>
-                    <keepBlankLines>false</keepBlankLines>
-                    <nrOfIndentSpace>4</nrOfIndentSpace>
-                    <!-- The goal is "stop" on purpose otherwise a release would fail if the plugin automatically sorts during 
+            <groupId>com.github.ekryd.sortpom</groupId>
+            <artifactId>sortpom-maven-plugin</artifactId>
+            <configuration>
+               <createBackupFile>false</createBackupFile>
+               <predefinedSortOrder>recommended_2008_06</predefinedSortOrder>
+               <encoding>UTF-8</encoding>
+               <sortProperties>true</sortProperties>
+               <sortDependencies>scope,artifactId</sortDependencies>
+               <sortPlugins>groupId,artifactId</sortPlugins>
+               <lineSeparator>\r\n</lineSeparator>
+               <keepBlankLines>false</keepBlankLines>
+               <nrOfIndentSpace>3</nrOfIndentSpace>
+               <!-- The goal is "stop" on purpose otherwise a release would fail if the plugin automatically sorts during 
                   a release build -->
-                    <verifyFail>stop</verifyFail>
-                </configuration>
-                <executions>
-                    <execution>
-                        <!-- use "mvn sortpom:sort" to sort the pom-file if the verify fails -->
-                        <id>verify-that-pom.xml-is-sorted</id>
-                        <goals>
-                            <goal>verify</goal>
-                        </goals>
-                        <phase>verify</phase>
-                    </execution>
-                </executions>
-            </plugin>
-            <!-- Everything looks better with a warm and friendly welcome message. Even this "default maven parent" -->
-            <plugin>
-                <groupId>com.google.code.echo-maven-plugin</groupId>
-                <artifactId>echo-maven-plugin</artifactId>
-                <version>1.0.0</version>
-                <inherited>false</inherited>
-                <executions>
-                    <execution>
-                        <id>welcome-message</id>
-                        <goals>
-                            <goal>echo</goal>
-                        </goals>
-                        <phase>validate</phase>
-                        <configuration>
-                            <message><![CDATA[${line.separator} 
+               <verifyFail>stop</verifyFail>
+            </configuration>
+            <executions>
+               <execution>
+                  <!-- use "mvn sortpom:sort" to sort the pom-file if the verify fails -->
+                  <id>verify-that-pom.xml-is-sorted</id>
+                  <goals>
+                     <goal>verify</goal>
+                  </goals>
+                  <phase>verify</phase>
+               </execution>
+            </executions>
+         </plugin>
+         <!-- Everything looks better with a warm and friendly welcome message. Even this "default maven parent" -->
+         <plugin>
+            <groupId>com.google.code.echo-maven-plugin</groupId>
+            <artifactId>echo-maven-plugin</artifactId>
+            <version>1.0.0</version>
+            <inherited>false</inherited>
+            <executions>
+               <execution>
+                  <id>welcome-message</id>
+                  <goals>
+                     <goal>echo</goal>
+                  </goals>
+                  <phase>validate</phase>
+                  <configuration>
+                     <message><![CDATA[${line.separator} 
   You are using the 'de.laimes.maven:default-parent' that provides a set of 
   necessary plugins that every project should have.${line.separator}
   If you have any suggestions what should be part of every maven project or if
   you find a bug then visit https://github.com/EricDuell/${project.artifactId} 
   and feel free to create a task.${line.separator}]]></message>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <!-- Analyzes the dependencies of this project and determines which are: used and declared; used and undeclared; 
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>
+         <!-- Analyzes the dependencies of this project and determines which are: used and declared; used and undeclared; 
             unused and declared. -->
-            <plugin>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>analyze-only</goal>
-                        </goals>
-                        <configuration>
-                            <failOnWarning>true</failOnWarning>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-enforcer-plugin</artifactId>
-                <configuration>
-                    <ignoreCache>true</ignoreCache>
-                    <fail>true</fail>
-                    <failFast>true</failFast>
-                </configuration>
-                <executions>
-                    <!-- This goal displays the current platform information. -->
-                    <execution>
-                        <id>display-info</id>
-                        <goals>
-                            <goal>display-info</goal>
-                        </goals>
-                        <phase>validate</phase>
-                    </execution>
-                    <execution>
-                        <id>enforce-no-banned-dependencies</id>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                        <configuration>
-                            <rules>
-                                <bannedDependencies>
-                                    <excludes>
-                                        <!-- dummy rule. always describe why sth. is banned and what should be used instead -->
-                                        <exclude>org.apache.maven:badArtifact</exclude>
-                                    </excludes>
-                                </bannedDependencies>
-                            </rules>
-                        </configuration>
-                    </execution>
-                    <!-- This rule checks that the versions within the reactor are consistent furthermore it will check that every 
+         <plugin>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+               <execution>
+                  <goals>
+                     <goal>analyze-only</goal>
+                  </goals>
+                  <configuration>
+                     <failOnWarning>true</failOnWarning>
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>
+         <plugin>
+            <artifactId>maven-enforcer-plugin</artifactId>
+            <configuration>
+               <ignoreCache>true</ignoreCache>
+               <fail>true</fail>
+               <failFast>true</failFast>
+            </configuration>
+            <executions>
+               <!-- This goal displays the current platform information. -->
+               <execution>
+                  <id>display-info</id>
+                  <goals>
+                     <goal>display-info</goal>
+                  </goals>
+                  <phase>validate</phase>
+               </execution>
+               <execution>
+                  <id>enforce-no-banned-dependencies</id>
+                  <goals>
+                     <goal>enforce</goal>
+                  </goals>
+                  <configuration>
+                     <rules>
+                        <bannedDependencies>
+                           <excludes>
+                              <!-- dummy rule. always describe why sth. is banned and what should be used instead -->
+                              <exclude>org.apache.maven:badArtifact</exclude>
+                           </excludes>
+                        </bannedDependencies>
+                     </rules>
+                  </configuration>
+               </execution>
+               <!-- This rule checks that the versions within the reactor are consistent furthermore it will check that every 
                   module within the project contains a parent and that the parent is part of the reactor build. Furthermore it will be checked 
                   if dependencies are intermodule dependencies that they using the same version as given by the reactor. -->
-                    <execution>
-                        <id>enforce-reactorModuleConvergence</id>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                        <configuration>
-                            <rules>
-                                <reactorModuleConvergence></reactorModuleConvergence>
-                            </rules>
-                            <fail>true</fail>
-                        </configuration>
-                    </execution>
-                    <!-- This rule checks that the specified list of files exist. -->
-                    <execution>
-                        <id>enforce-surefire-logconfig-exist</id>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                        <configuration>
-                            <rules>
-                                <requireFilesExist>
-                                    <files>
-                                        <file>src/test/resources/log4j.surefire.xml</file>
-                                    </files>
-                                </requireFilesExist>
-                            </rules>
-                            <fail>true</fail>
-                        </configuration>
-                    </execution>
-                    <!-- This rule enforces certain Maven versions. The rule uses the Enforcer version range syntax to define 
+               <execution>
+                  <id>enforce-reactorModuleConvergence</id>
+                  <goals>
+                     <goal>enforce</goal>
+                  </goals>
+                  <configuration>
+                     <rules>
+                        <reactorModuleConvergence></reactorModuleConvergence>
+                     </rules>
+                     <fail>true</fail>
+                  </configuration>
+               </execution>
+               <!-- This rule checks that the specified list of files exist. -->
+               <execution>
+                  <id>enforce-surefire-logconfig-exist</id>
+                  <goals>
+                     <goal>enforce</goal>
+                  </goals>
+                  <configuration>
+                     <rules>
+                        <requireFilesExist>
+                           <files>
+                              <file>src/test/resources/log4j.surefire.xml</file>
+                           </files>
+                        </requireFilesExist>
+                     </rules>
+                     <fail>true</fail>
+                  </configuration>
+               </execution>
+               <!-- This rule enforces certain Maven versions. The rule uses the Enforcer version range syntax to define 
                   allowed versions. -->
-                    <execution>
-                        <id>enforce-maven-version</id>
+               <execution>
+                  <id>enforce-maven-version</id>
+                  <goals>
+                     <goal>enforce</goal>
+                  </goals>
+                  <configuration>
+                     <rules>
+                        <requireMavenVersion>
+                           <version>${maven.version}</version>
+                        </requireMavenVersion>
+                     </rules>
+                  </configuration>
+               </execution>
+               <!-- This rule checks that this pom or its parents don't define a repository. -->
+               <execution>
+                  <id>enforce-no-repositories-in-pom.xml</id>
+                  <goals>
+                     <goal>enforce</goal>
+                  </goals>
+                  <configuration>
+                     <rules>
+                        <requireNoRepositories>
+                           <message><![CDATA[Best Practice is to never define repositories in
+ pom.xml (use a repository manager instead)]]></message>
+                        </requireNoRepositories>
+                     </rules>
+                  </configuration>
+               </execution>
+               <!-- This rule enforces that all plugins have a concrete version defined. "RELEASE" as version is not allowed -->
+               <execution>
+                  <id>ban-RELEASE-as-plugin-version</id>
+                  <goals>
+                     <goal>enforce</goal>
+                  </goals>
+                  <configuration>
+                     <rules>
+                        <requirePluginVersions>
+                           <message><![CDATA[To ensure build stability the maven paremeter
+ "RELEASE" is not allowed as plugin version]]></message>
+                           <banRelease>true</banRelease>
+                           <banLatest>false</banLatest>
+                           <banSnapshots>false</banSnapshots>
+                        </requirePluginVersions>
+                     </rules>
+                     <fail>true</fail>
+                  </configuration>
+               </execution>
+               <!-- This rule enforces that all plugins have a concrete version defined. "LATEST" as version is not allowed -->
+               <execution>
+                  <id>ban-LATEST-as-plugin-version</id>
+                  <goals>
+                     <goal>enforce</goal>
+                  </goals>
+                  <configuration>
+                     <rules>
+                        <requirePluginVersions>
+                           <message><![CDATA[To ensure build stability the maven paremeter "LATEST"
+ is not allowed as plugin version]]></message>
+                           <banRelease>false</banRelease>
+                           <banLatest>true</banLatest>
+                           <banSnapshots>false</banSnapshots>
+                        </requirePluginVersions>
+                     </rules>
+                     <fail>true</fail>
+                  </configuration>
+               </execution>
+               <!-- This rule enforces that all plugins have a release version. Snapshot versions are not allowed -->
+               <execution>
+                  <id>ban-SNAPSHOT-as-plugin-version</id>
+                  <goals>
+                     <goal>enforce</goal>
+                  </goals>
+                  <configuration>
+                     <rules>
+                        <requirePluginVersions>
+                           <message><![CDATA[To ensure build stability only released plugin
+ versions are allowed]]></message>
+                           <banRelease>false</banRelease>
+                           <banLatest>false</banLatest>
+                           <banSnapshots>true</banSnapshots>
+                        </requirePluginVersions>
+                     </rules>
+                     <fail>true</fail>
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>
+         <!-- Sign project artifact, the POM, and attached artifacts with GnuPG for deployment. -->
+         <!-- This is only for this parent and will not be inherited to childs -->
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.6</version>
+            <inherited>false</inherited>
+            <executions>
+               <execution>
+                  <id>sign-artifacts</id>
+                  <goals>
+                     <goal>sign</goal>
+                  </goals>
+                  <phase>verify</phase>
+               </execution>
+            </executions>
+         </plugin>
+         <plugin>
+            <artifactId>maven-release-plugin</artifactId>
+            <configuration>
+               <useReleaseProfile>false</useReleaseProfile>
+               <releaseProfiles>release</releaseProfiles>
+               <autoVersionSubmodules>true</autoVersionSubmodules>
+            </configuration>
+         </plugin>
+         <!-- Nexus plugin to deploy to maven central. This is only for this parent and will not be inherited to childs -->
+         <plugin>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nexus-staging-maven-plugin</artifactId>
+            <version>1.6.3</version>
+            <extensions>true</extensions>
+            <inherited>false</inherited>
+            <configuration>
+               <serverId>ossrh</serverId>
+               <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+               <autoReleaseAfterClose>true</autoReleaseAfterClose>
+            </configuration>
+         </plugin>
+      </plugins>
+   </build>
+   <profiles>
+      <profile>
+         <id>release</id>
+         <build>
+            <plugins>
+               <plugin>
+                  <artifactId>maven-javadoc-plugin</artifactId>
+                  <executions>
+                     <execution>
+                        <id>attach-javadocs</id>
                         <goals>
-                            <goal>enforce</goal>
+                           <goal>jar</goal>
                         </goals>
-                        <configuration>
-                            <rules>
-                                <requireMavenVersion>
-                                    <version>${maven.version}</version>
-                                </requireMavenVersion>
-                            </rules>
-                        </configuration>
-                    </execution>
-                    <!-- This rule checks that this pom or its parents don't define a repository. -->
-                    <execution>
-                        <id>enforce-no-repositories-in-pom.xml</id>
+                     </execution>
+                  </executions>
+               </plugin>
+               <plugin>
+                  <artifactId>maven-source-plugin</artifactId>
+                  <executions>
+                     <execution>
+                        <id>attach-sources</id>
                         <goals>
-                            <goal>enforce</goal>
+                           <goal>jar</goal>
                         </goals>
-                        <configuration>
-                            <rules>
-                                <requireNoRepositories>
-                                    <message>Best Practice is to never define repositories in
-                              pom.xml (use a repository manager
-                              instead)</message>
-                                </requireNoRepositories>
-                            </rules>
-                        </configuration>
-                    </execution>
-                    <!-- This rule enforces that all plugins have a concrete version defined. "RELEASE" as version is not allowed -->
-                    <execution>
-                        <id>ban-RELEASE-as-plugin-version</id>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                        <configuration>
-                            <rules>
-                                <requirePluginVersions>
-                                    <message>To ensure build stability the maven paremeter
-                              "RELEASE" is not allowed as plugin
-                              version</message>
-                                    <banRelease>true</banRelease>
-                                    <banLatest>false</banLatest>
-                                    <banSnapshots>false</banSnapshots>
-                                </requirePluginVersions>
-                            </rules>
-                            <fail>true</fail>
-                        </configuration>
-                    </execution>
-                    <!-- This rule enforces that all plugins have a concrete version defined. "LATEST" as version is not allowed -->
-                    <execution>
-                        <id>ban-LATEST-as-plugin-version</id>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                        <configuration>
-                            <rules>
-                                <requirePluginVersions>
-                                    <message>To ensure build stability the maven paremeter "LATEST"
-                              is not allowed as plugin
-                              version</message>
-                                    <banRelease>false</banRelease>
-                                    <banLatest>true</banLatest>
-                                    <banSnapshots>false</banSnapshots>
-                                </requirePluginVersions>
-                            </rules>
-                            <fail>true</fail>
-                        </configuration>
-                    </execution>
-                    <!-- This rule enforces that all plugins have a release version. Snapshot versions are not allowed -->
-                    <execution>
-                        <id>ban-SNAPSHOT-as-plugin-version</id>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                        <configuration>
-                            <rules>
-                                <requirePluginVersions>
-                                    <message>To ensure build stability only released plugin
-                              versions are allowed</message>
-                                    <banRelease>false</banRelease>
-                                    <banLatest>false</banLatest>
-                                    <banSnapshots>true</banSnapshots>
-                                </requirePluginVersions>
-                            </rules>
-                            <fail>true</fail>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <!-- Sign project artifact, the POM, and attached artifacts with GnuPG for deployment. -->
-            <!-- This is only for this parent and will not be inherited to childs -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.6</version>
-                <inherited>false</inherited>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                        <phase>verify</phase>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-release-plugin</artifactId>
-                <configuration>
-                    <useReleaseProfile>false</useReleaseProfile>
-                    <releaseProfiles>release</releaseProfiles>
-                    <autoVersionSubmodules>true</autoVersionSubmodules>
-                </configuration>
-            </plugin>
-            <!-- Nexus plugin to deploy to maven central. This is only for this parent and will not be inherited to childs -->
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.3</version>
-                <extensions>true</extensions>
-                <inherited>false</inherited>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-    <profiles>
-        <profile>
-            <id>release</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>attach-javadocs</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>attach-sources</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
+                     </execution>
+                  </executions>
+               </plugin>
+            </plugins>
+         </build>
+      </profile>
+   </profiles>
 </project>
