@@ -324,34 +324,6 @@
                </execution>
             </executions>
          </plugin>
-         <!-- Sign project artifact, the POM, and attached artifacts with GnuPG for deployment. -->
-         <!-- This is only for this parent and will not be inherited to childs -->
-         <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-gpg-plugin</artifactId>
-            <version>1.6</version>
-            <inherited>false</inherited>
-            <executions>
-               <execution>
-                  <id>sign-artifacts</id>
-                  <goals>
-                     <goal>sign</goal>
-                  </goals>
-                  <phase>verify</phase>
-               </execution>
-            </executions>
-         </plugin>
-         <plugin>
-            <artifactId>maven-javadoc-plugin</artifactId>
-            <executions>
-               <execution>
-                  <id>attach-javadocs</id>
-                  <goals>
-                     <goal>jar</goal>
-                  </goals>
-               </execution>
-            </executions>
-         </plugin>
          <plugin>
             <artifactId>maven-release-plugin</artifactId>
             <configuration>
@@ -360,6 +332,7 @@
                <autoVersionSubmodules>true</autoVersionSubmodules>
             </configuration>
          </plugin>
+         <!-- A source file should be always created and not only during a release. This makes debugging more comfortable. -->
          <plugin>
             <artifactId>maven-source-plugin</artifactId>
             <executions>
@@ -373,4 +346,44 @@
          </plugin>
       </plugins>
    </build>
+   <profiles>
+      <!-- The profile "release" will be automatically executed during a build. Anyhow, it is recommended to create a SNAPSHOT 
+         build on a regular base with this profile activated to test the setup and the outcome. -->
+      <profile>
+         <id>release</id>
+         <build>
+            <plugins>
+               <!-- Sign project artifact, the POM, and attached artifacts with GnuPG for deployment. -->
+               <!-- This is only for this parent and will not be inherited to childs -->
+               <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-gpg-plugin</artifactId>
+                  <version>1.6</version>
+                  <inherited>false</inherited>
+                  <executions>
+                     <execution>
+                        <id>sign-artifacts</id>
+                        <goals>
+                           <goal>sign</goal>
+                        </goals>
+                        <phase>verify</phase>
+                     </execution>
+                  </executions>
+               </plugin>
+               <!-- Javadoc creation is a time consuming operation and was moved to the release profile. -->
+               <plugin>
+                  <artifactId>maven-javadoc-plugin</artifactId>
+                  <executions>
+                     <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                           <goal>jar</goal>
+                        </goals>
+                     </execution>
+                  </executions>
+               </plugin>
+            </plugins>
+         </build>
+      </profile>
+   </profiles>
 </project>
