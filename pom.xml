@@ -411,21 +411,21 @@
             <artifactId>versions-maven-plugin</artifactId>
             <executions>
                <execution>
-                  <id>display-dependency-updates</id>
+                  <id>analyze-dependency-versions</id>
                   <goals>
                      <goal>display-dependency-updates</goal>
                   </goals>
                   <phase>validate</phase>
                </execution>
                <execution>
-                  <id>display-plugin-updates</id>
+                  <id>analyze-plugin-versions</id>
                   <goals>
                      <goal>display-plugin-updates</goal>
                   </goals>
                   <phase>validate</phase>
                </execution>
                <execution>
-                  <id>display-property-updates</id>
+                  <id>analyze-versions-defined-as-properties</id>
                   <goals>
                      <goal>display-property-updates</goal>
                   </goals>
