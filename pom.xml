@@ -11,7 +11,7 @@
       <maven>3.1.0</maven>
    </prerequisites>
    <!-- The license should not be part of this default-parent as it will inherit the information
-   to all its children, maybe without their knowledge. The file itself is published under 
+   to all its children, maybe without their knowledge. The parent itself is published under 
    "The Apache 2.0 License". 
    <licenses>
       <license>
