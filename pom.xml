@@ -98,10 +98,9 @@
         </pluginManagement>
         <plugins>
             <plugin>
-                <!-- Maven plugin that helps the user sort pom.xml. The default sort 
-					order is taken from the Maven3 pom documentation. The main advantages to 
-					have standardized sorted poms are that they become more readable and that 
-					comparisons between different module poms becomes much easier. -->
+                <!-- Maven plugin that helps the user sort pom.xml. The default sort order is taken from the Maven3 pom documentation. 
+               The main advantages to have standardized sorted poms are that they become more readable and that comparisons between different 
+               module poms becomes much easier. -->
                 <groupId>com.github.ekryd.sortpom</groupId>
                 <artifactId>sortpom-maven-plugin</artifactId>
                 <configuration>
@@ -114,8 +113,8 @@
                     <lineSeparator>\r\n</lineSeparator>
                     <keepBlankLines>false</keepBlankLines>
                     <nrOfIndentSpace>4</nrOfIndentSpace>
-                    <!-- The goal is "stop" on purpose otherwise a release would fail if 
-						the plugin automatically sorts during a release build -->
+                    <!-- The goal is "stop" on purpose otherwise a release would fail if the plugin automatically sorts during 
+                  a release build -->
                     <verifyFail>stop</verifyFail>
                 </configuration>
                 <executions>
@@ -129,8 +128,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- Everything looks better with a warm and friendly welcome message. 
-				Even this "default maven parent" -->
+            <!-- Everything looks better with a warm and friendly welcome message. Even this "default maven parent" -->
             <plugin>
                 <groupId>com.google.code.echo-maven-plugin</groupId>
                 <artifactId>echo-maven-plugin</artifactId>
@@ -144,18 +142,18 @@
                         </goals>
                         <phase>validate</phase>
                         <configuration>
-                            <message>${line.separator} 
+                            <message><![CDATA[${line.separator} 
   You are using the 'de.laimes.maven:default-parent' that provides a set of 
   necessary plugins that every project should have.${line.separator}
   If you have any suggestions what should be part of every maven project or if
   you find a bug then visit https://github.com/EricDuell/${project.artifactId} 
-  and feel free to create a task.${line.separator}</message>
+  and feel free to create a task.${line.separator}]]></message>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
-            <!-- Analyzes the dependencies of this project and determines which are: 
-				used and declared; used and undeclared; unused and declared. -->
+            <!-- Analyzes the dependencies of this project and determines which are: used and declared; used and undeclared; 
+            unused and declared. -->
             <plugin>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <executions>
@@ -194,19 +192,16 @@
                             <rules>
                                 <bannedDependencies>
                                     <excludes>
-                                        <!-- dummy rule. always describe why sth. is banned and what should 
-											be used instead -->
+                                        <!-- dummy rule. always describe why sth. is banned and what should be used instead -->
                                         <exclude>org.apache.maven:badArtifact</exclude>
                                     </excludes>
                                 </bannedDependencies>
                             </rules>
                         </configuration>
                     </execution>
-                    <!-- This rule checks that the versions within the reactor are consistent 
-						furthermore it will check that every module within the project contains a 
-						parent and that the parent is part of the reactor build. Furthermore it will 
-						be checked if dependencies are intermodule dependencies that they using the 
-						same version as given by the reactor. -->
+                    <!-- This rule checks that the versions within the reactor are consistent furthermore it will check that every 
+                  module within the project contains a parent and that the parent is part of the reactor build. Furthermore it will be checked 
+                  if dependencies are intermodule dependencies that they using the same version as given by the reactor. -->
                     <execution>
                         <id>enforce-reactorModuleConvergence</id>
                         <goals>
@@ -236,8 +231,8 @@
                             <fail>true</fail>
                         </configuration>
                     </execution>
-                    <!-- This rule enforces certain Maven versions. The rule uses the Enforcer 
-						version range syntax to define allowed versions. -->
+                    <!-- This rule enforces certain Maven versions. The rule uses the Enforcer version range syntax to define 
+                  allowed versions. -->
                     <execution>
                         <id>enforce-maven-version</id>
                         <goals>
@@ -261,13 +256,12 @@
                             <rules>
                                 <requireNoRepositories>
                                     <message>Best Practice is to never define repositories in
-										pom.xml (use a repository manager instead)</message>
+                              pom.xml (use a repository manager instead)</message>
                                 </requireNoRepositories>
                             </rules>
                         </configuration>
                     </execution>
-                    <!-- This rule enforces that all plugins have a concrete version defined. 
-						"RELEASE" as version is not allowed -->
+                    <!-- This rule enforces that all plugins have a concrete version defined. "RELEASE" as version is not allowed -->
                     <execution>
                         <id>ban-RELEASE-as-plugin-version</id>
                         <goals>
@@ -277,7 +271,7 @@
                             <rules>
                                 <requirePluginVersions>
                                     <message>To ensure build stability the maven paremeter
-										"RELEASE" is not allowed as plugin version</message>
+                              "RELEASE" is not allowed as plugin version</message>
                                     <banRelease>true</banRelease>
                                     <banLatest>false</banLatest>
                                     <banSnapshots>false</banSnapshots>
@@ -286,8 +280,7 @@
                             <fail>true</fail>
                         </configuration>
                     </execution>
-                    <!-- This rule enforces that all plugins have a concrete version defined. 
-						"LATEST" as version is not allowed -->
+                    <!-- This rule enforces that all plugins have a concrete version defined. "LATEST" as version is not allowed -->
                     <execution>
                         <id>ban-LATEST-as-plugin-version</id>
                         <goals>
@@ -297,7 +290,7 @@
                             <rules>
                                 <requirePluginVersions>
                                     <message>To ensure build stability the maven paremeter "LATEST"
-										is not allowed as plugin version</message>
+                              is not allowed as plugin version</message>
                                     <banRelease>false</banRelease>
                                     <banLatest>true</banLatest>
                                     <banSnapshots>false</banSnapshots>
@@ -306,8 +299,7 @@
                             <fail>true</fail>
                         </configuration>
                     </execution>
-                    <!-- This rule enforces that all plugins have a release version. Snapshot 
-						versions are not allowed -->
+                    <!-- This rule enforces that all plugins have a release version. Snapshot versions are not allowed -->
                     <execution>
                         <id>ban-SNAPSHOT-as-plugin-version</id>
                         <goals>
@@ -317,7 +309,7 @@
                             <rules>
                                 <requirePluginVersions>
                                     <message>To ensure build stability only released plugin
-										versions are allowed</message>
+                              versions are allowed</message>
                                     <banRelease>false</banRelease>
                                     <banLatest>false</banLatest>
                                     <banSnapshots>true</banSnapshots>
