@@ -256,7 +256,8 @@
                             <rules>
                                 <requireNoRepositories>
                                     <message>Best Practice is to never define repositories in
-                              pom.xml (use a repository manager instead)</message>
+                              pom.xml (use a repository manager
+                              instead)</message>
                                 </requireNoRepositories>
                             </rules>
                         </configuration>
@@ -271,7 +272,8 @@
                             <rules>
                                 <requirePluginVersions>
                                     <message>To ensure build stability the maven paremeter
-                              "RELEASE" is not allowed as plugin version</message>
+                              "RELEASE" is not allowed as plugin
+                              version</message>
                                     <banRelease>true</banRelease>
                                     <banLatest>false</banLatest>
                                     <banSnapshots>false</banSnapshots>
@@ -290,7 +292,8 @@
                             <rules>
                                 <requirePluginVersions>
                                     <message>To ensure build stability the maven paremeter "LATEST"
-                              is not allowed as plugin version</message>
+                              is not allowed as plugin
+                              version</message>
                                     <banRelease>false</banRelease>
                                     <banLatest>true</banLatest>
                                     <banSnapshots>false</banSnapshots>
@@ -321,10 +324,12 @@
                 </executions>
             </plugin>
             <!-- Sign project artifact, the POM, and attached artifacts with GnuPG for deployment. -->
+            <!-- This is only for this parent and will not be inherited to childs -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
                 <version>1.6</version>
+                <inherited>false</inherited>
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>
@@ -341,6 +346,19 @@
                     <useReleaseProfile>false</useReleaseProfile>
                     <releaseProfiles>release</releaseProfiles>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
+                </configuration>
+            </plugin>
+            <!-- Nexus plugin to deploy to maven central. This is only for this parent and will not be inherited to childs -->
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.3</version>
+                <extensions>true</extensions>
+                <inherited>false</inherited>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
             </plugin>
         </plugins>
