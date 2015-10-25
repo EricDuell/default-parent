@@ -26,6 +26,10 @@
       <url>https://github.com/EricDuell/default-parent</url>
    </scm>
    <distributionManagement>
+      <repository>
+         <id>ossrh</id>
+         <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      </repository>
       <snapshotRepository>
          <id>ossrh</id>
          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
@@ -343,19 +347,6 @@
                <useReleaseProfile>false</useReleaseProfile>
                <releaseProfiles>release</releaseProfiles>
                <autoVersionSubmodules>true</autoVersionSubmodules>
-            </configuration>
-         </plugin>
-         <!-- Nexus plugin to deploy to maven central. This is only for this parent and will not be inherited to childs -->
-         <plugin>
-            <groupId>org.sonatype.plugins</groupId>
-            <artifactId>nexus-staging-maven-plugin</artifactId>
-            <version>1.6.3</version>
-            <extensions>true</extensions>
-            <inherited>false</inherited>
-            <configuration>
-               <serverId>ossrh</serverId>
-               <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-               <autoReleaseAfterClose>true</autoReleaseAfterClose>
             </configuration>
          </plugin>
       </plugins>
