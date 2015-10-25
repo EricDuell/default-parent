@@ -43,6 +43,7 @@
       </snapshotRepository>
    </distributionManagement>
    <properties>
+      <java.version>1.7</java.version>
       <maven.version>(3.1.0,3.2.0)</maven.version>
    </properties>
    <build>
@@ -254,6 +255,21 @@
                         <requireMavenVersion>
                            <version>${maven.version}</version>
                         </requireMavenVersion>
+                     </rules>
+                  </configuration>
+               </execution>
+               <!-- This rule enforces certain Java JDK versions. The rule uses the Enforcer version range syntax to 
+                  define allowed versions. -->
+               <execution>
+                  <id>enforce-java-version</id>
+                  <goals>
+                     <goal>enforce</goal>
+                  </goals>
+                  <configuration>
+                     <rules>
+                        <requireJavaVersion>
+                           <version>${java.version}</version>
+                        </requireJavaVersion>
                      </rules>
                   </configuration>
                </execution>
